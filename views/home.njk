@@ -1,0 +1,49 @@
+{% extends "layout/base.njk"%}
+{%block title %}{{ title }}{%endblock%}
+    {% block body %}
+        <main>
+            <header>
+                <div class="home_heading">
+                    <div class="logo">
+                        <p>Y-share</p>
+                    </div>
+                    <div class="user__count">
+                        <div class="entered user_section">
+                            <div id="status__green" class="status"></div>
+                            <p>10 users</p>
+                        </div>
+                        <div class="waiting user_section">
+                            <div id="status__white" class="status"></div>
+                            <p>5 waiting</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="dynamic__content">
+                <ul>
+                    <li>
+                        <div class="link__post post">
+                            <a href="https://www.art.yale.edu">https://www.art.yale.edu</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link__post post">
+                            <a href="http://2ndyearshow.yaleschoolofart.org">http://2ndyearshow.yaleschoolofart.org</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text__post post">
+                            <p>You can't use up creativity. The more you use, the more you have.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+    {% endblock %}
+
+    {% block footer %}
+        <div class="add__icon">
+            <p>+</p>
+        </div>
+    {% endblock %}
