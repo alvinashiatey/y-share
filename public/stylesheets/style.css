@@ -134,7 +134,7 @@ a,
 a:link,
 a:visited,
 a:active {
-  color: #181818;
+  color: #0f3460;
   text-decoration: none;
 }
 
@@ -151,10 +151,11 @@ body {
   display: flex;
   flex-direction: column;
   color: #0f3460;
+  overflow: hidden;
 }
 
 .main_container {
-  font: 14px "Signifier", Helvetica, Arial, sans-serif;
+  font: 1rem "Signifier", Helvetica, Arial, sans-serif;
   max-width: 40em;
   margin: 2rem auto;
 }
@@ -164,8 +165,12 @@ body {
   justify-content: space-between;
 }
 
-a {
-  color: #00b7ff;
+.hide {
+  display: none !important;
+}
+
+.content-reveal {
+  height: 100% !important;
 }
 
 .logo {
@@ -173,16 +178,16 @@ a {
   font-weight: bold;
 }
 
-footer {
-  max-width: 40em;
-  margin: 0 auto;
-  margin-top: auto;
-  margin-bottom: 5rem;
+.title {
+  font-size: 6rem;
+  font-weight: bold;
 }
 
-.add__icon {
-  font-size: 3rem;
-  font-weight: bold;
+footer {
+  max-width: 40em;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: 5rem;
 }
 
 .user_section {
@@ -211,6 +216,27 @@ footer {
 .dynamic__content {
   margin-top: 2.5rem;
   font-size: 1.3rem;
+  height: 55rem;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.gradient__fill {
+  background: rgb(255, 201, 60);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 201, 60, 1) 0%,
+    rgba(255, 201, 60, 0) 100%
+  );
+  height: 2rem;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.dynamic__content::-webkit-scrollbar {
+  display: none;
 }
 
 .dynamic__content ul {
@@ -226,9 +252,6 @@ footer {
   color: #0f3460;
 }
 
-.post {
-}
-
 .dynamic__content ul li .link__post {
   border-top: 2px solid #0f3460;
 }
@@ -236,4 +259,90 @@ footer {
 .dynamic__content ul li .text__post {
   color: #81b214;
   border-top: 2px solid #81b214;
+}
+
+.post {
+  height: 1.6875rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.yp_content {
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.interaction__container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.post__options {
+  display: flex;
+  background-color: #fefefe;
+  padding: 0.5rem;
+  justify-content: space-between;
+  width: 10rem;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  margin: auto;
+}
+.add {
+  cursor: pointer;
+}
+
+.add__icon {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.post__text {
+  background: #0f3460;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  max-width: 20rem;
+  box-sizing: border-box;
+}
+
+.post__text form input {
+  height: 1.5rem;
+}
+
+.post__text form #post_submit {
+  width: 4rem;
+  margin-top: 0.5rem;
+  font: 14px "Signifier", Helvetica, Arial, sans-serif;
+  color: #0f3460;
+  font-weight: bold;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+  background-color: #fefefe;
+  color: #0f3460;
+  font: 14px "Signifier", Helvetica, Arial, sans-serif;
+  padding: 0 0.2rem;
+  box-sizing: border-box;
+}
+
+.textarea[contenteditable]:empty::before {
+  content: "What's going on? ";
+  color: gray;
+  padding: 0 0.2rem;
+}
+
+.post__text form p {
+  color: #fefefe;
+  font-size: 1rem;
 }

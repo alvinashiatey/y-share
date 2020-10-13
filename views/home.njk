@@ -5,7 +5,7 @@
             <header>
                 <div class="home_heading">
                     <div class="logo">
-                        <p>Y-share</p>
+                        <a href = "/home">Y-share</a>
                     </div>
                     <div class="user__count">
                         <div class="entered user_section">
@@ -20,22 +20,15 @@
                 </div>
             </header>
             <div class="dynamic__content">
-                <ul>
-                    <li>
-                        <div class="link__post post">
-                            <a href="https://www.art.yale.edu">https://www.art.yale.edu</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="link__post post">
-                            <a href="http://2ndyearshow.yaleschoolofart.org">http://2ndyearshow.yaleschoolofart.org</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text__post post">
-                            <p>You can't use up creativity. The more you use, the more you have.</p>
-                        </div>
-                    </li>
+            <div class="gradient__fill"></div>
+                <ul id="dy__ul">
+                    {% for d in data %}
+                        <li>
+                            <div {% if d.type == 'text' %} class="text__post post" {% elif d.type == 'link' %} class="link__post post" {% elif d.type == 'img' %} class="link__post post" {% endif%} >
+                                {% if d.type == 'text' %} <p class="yp_content">{{ d.post }}</p> {% elif d.type == 'link' %} <a href="{{d.post}}" class="yp_content">{{ d.post }}</a> {% elif d.type == 'img' %} <p class="yp_content">{{d.post | truncate(60)}}</p>  {% endif%}
+                            </div>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
         </main>
@@ -43,7 +36,5 @@
     {% endblock %}
 
     {% block footer %}
-        <div class="add__icon">
-            <p>+</p>
-        </div>
+        {% include "layout/interactionPanel.njk" %}
     {% endblock %}
